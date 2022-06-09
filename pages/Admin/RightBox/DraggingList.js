@@ -7,12 +7,12 @@ function DraggingList({configArray, setEditElemNum}) {
     
   return (
     <ul>
-        {configArray.map((item, idx) => {
-            switch(item.component){
-                case "Paragraph" :
-                    return <li key={idx}><p onClick={()=> setEditElemNumHandler(idx)}>Paragraph</p></li>;
-                case "Button" :
-                    return <li key={idx}><button onClick={()=> setEditElemNumHandler(idx)}>button</button></li>;
+        {configArray.map((config, idx) => {
+            switch(config.component){
+                case "ElementParagraph" :
+                    return <li key={idx}><p onClick={()=> setEditElemNumHandler(idx)}>{config.props.text ? config.props.text : 'Paragraph'}</p></li>;
+                case "ElementButton" :
+                    return <li key={idx}><button onClick={()=> setEditElemNumHandler(idx)}>{config.props.text ? config.props.text : 'Button'}</button></li>;
                 default : return null;
             }
         })}

@@ -27,14 +27,14 @@ function EditBox({configArray, setConfigArray, editElemNum}) {
     }
 
     switch(editElementConfig.component){
-        case "Paragraph" :
+        case "ElementParagraph" :
             return (
                 <div className={admin.editList}>
                     <label htmlFor='paragraphText'>Paragraph Text</label>
                     <input id='paragraphText' name='text' onChange={inputChangeHandler}></input>
                 </div>
             );
-        case "Button" :
+        case "ElementButton" :
             return (
                 <div className={admin.editList}>
                     <label htmlFor='buttonText'>Button Text</label>

@@ -4,9 +4,9 @@ import Admin from './Admin'
 
 export default function Landing() {
   return (
-    <div>
-        <Nav />
-        <Admin />
-    </div>
+    <>
+      <Nav />
+      <Admin />
+    </>
   )
 }

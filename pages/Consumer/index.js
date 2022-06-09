@@ -1,9 +1,11 @@
 import React from 'react'
 
-function index() {
+function Consumer() {
   return (
-    <div>Consumer</div>
+    <div>
+      Consumer
+    </div>
   )
 }
 
-export default index
+export default Consumer

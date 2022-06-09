@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-function Mouse() {
+function MousePisition() {
     const [position, setPosition] = useState([0, 0])
 
     function setPositionHandler(e){
@@ -16,4 +16,4 @@ function Mouse() {
   )
 }
 
-export default Mouse
+export default MousePisition

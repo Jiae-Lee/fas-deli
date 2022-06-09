@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import Mouse from './util/Mouse'
+import MousePosition from './util/MousePosition'
 import Dragging from './util/Dragging'
 import admin from '../../../styles/Admin.module.css'
 import DraggingList from './DraggingList'
 import EditBox from './EditBox'
+import { useDispatch } from 'react-redux'
+import { configArrayToStore } from '../../../store/modules/adminAction'
 
 export default function RightBox() {
+    const dispatch = useDispatch();
     const [configArray, setConfigArray] = useState([])
     const [editElemNum, setEditElemNum] = useState(null)
 
@@ -17,13 +20,13 @@ export default function RightBox() {
 
     const dropEvent = (e) => {
         e.preventDefault()
-        let draggingElement = e.path[0].id;
-        setConfigArray([...configArray, {...config, id: 'id'+Math.random(), component: draggingElement}])
+        let element = e.path[0].id;
+        setConfigArray([...configArray, {...config, id: 'id'+Math.random(), component: 'Element'+element}])
     }
 
     useEffect(()=>{
         document.addEventListener('dragend', dropEvent);
-        console.log('configArray', configArray);
+        dispatch(configArrayToStore(configArray));
     }, [configArray])
 
   return (
@@ -31,7 +34,7 @@ export default function RightBox() {
         <div className={admin.infoContainer}>
             <ul>
                 <li>
-                    Mouse : (<Mouse />) 
+                    Mouse : (<MousePosition />) 
                 </li>
                 <li>
                     Dragging : <Dragging />
