@@ -12,8 +12,8 @@ function Dragging() {
     }
 
     useEffect(()=>{
-        document.addEventListener('dragstart', dragStartEvent);
-        document.addEventListener('dragend', dragEndEvent);
+        document.addEventListener('dragstart', dragStarttHandler);
+        document.addEventListener('dragend', dragEndHandler);
     }, [])
   return (
     <span>{draggingElement}</span>
