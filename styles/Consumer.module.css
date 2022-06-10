@@ -1,0 +1,9 @@
+.consumerItemList {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.consumerItemList li {
+    margin: 10px 0;
+}

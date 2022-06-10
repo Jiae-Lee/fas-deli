@@ -5,13 +5,14 @@
 }
 
 .navItem {
+    padding: 0 15px;
+    height: 30px;
     background-color: var(--orange-100);
     color: white;
     font-weight: 700;
-    height: 30px;
     line-height: 30px;
     text-align: center;
-    padding: 0 15px;
+    cursor: pointer;
 }
 .navItem:hover {
     background-color: var(--orange-200);

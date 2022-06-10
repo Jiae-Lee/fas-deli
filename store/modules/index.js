@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import { HYDRATE } from "next-redux-wrapper";
-
+import undoable from 'redux-undo'
 import adminAction from './adminAction';
 
 const reducer =(state,action)=> {
@@ -10,8 +10,9 @@ const reducer =(state,action)=> {
             ...action.payload
         };
     }
+
     return combineReducers({
-        adminAction
+        adminAction:undoable(adminAction)
     })(state,action)
 }
 export default reducer;
