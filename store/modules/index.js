@@ -1,9 +1,8 @@
 import { combineReducers } from "redux";
 import { HYDRATE } from "next-redux-wrapper";
-import undoable from 'redux-undo'
 import adminAction from './adminAction';
 
-const reducer =(state,action)=> {
+const reducer =( state, action )=> {
     if (action.type === HYDRATE) {
         return {
             ...state,
@@ -12,7 +11,7 @@ const reducer =(state,action)=> {
     }
 
     return combineReducers({
-        adminAction:undoable(adminAction)
+        adminAction
     })(state,action)
 }
 export default reducer;

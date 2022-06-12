@@ -12,7 +12,7 @@ function MousePisition() {
         window.addEventListener('drag', setPositionHandler);
     }, [])
   return (
-    <span>{position[0]}, {position[1]}</span>
+    <span>({position[0]}, {position[1]})</span>
   )
 }
 

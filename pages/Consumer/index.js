@@ -3,26 +3,23 @@ import { useSelector } from 'react-redux'
 import consumer from '../../styles/Consumer.module.css'
 
 function Consumer() {
-  const savedconfigArray = useSelector(state => state.adminAction.present.savedConfigArray);
+  const savedHistoryToStore = useSelector(state => state.adminAction.savedHistory);
+  let viewList = savedHistoryToStore
 
-  // useEffect(()=>{
-  //   console.log(savedconfigArray)
-  // }, [savedconfigArray])
-  
   return (
     <ul className={consumer.consumerItemList}>
-        {savedconfigArray && savedconfigArray.map((config, idx) => {
-            switch(config.component){
+        {viewList && viewList.map((config, idx) => {
+            switch(config.body.component){
                 case "ElementParagraph" :
                     return (
                       <li key={idx}>
-                        <p>{config.props.text ? config.props.text : 'Paragraph'}</p>
+                        <p>{config.body.text ? config.body.text : 'Paragraph'}</p>
                       </li>
                       )
                 case "ElementButton" :
                     return (
                       <li key={idx}>
-                        <button onClick={()=> alert(config.props.message ? config.props.message : 'message')}>{config.props.text ? config.props.text : 'Button'}</button>
+                        <button onClick={()=> alert(config.body.message ? config.body.message : 'message')}>{config.body.text ? config.body.text : 'Button'}</button>
                       </li>)
                 default : return null;
             }

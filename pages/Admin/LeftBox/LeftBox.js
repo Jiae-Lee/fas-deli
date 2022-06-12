@@ -12,7 +12,6 @@ export default function LeftBox() {
         }
     ]
 
-
   return (
     <div className={styles.items}>
         {

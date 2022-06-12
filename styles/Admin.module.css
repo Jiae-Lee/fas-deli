@@ -51,9 +51,13 @@
 
 .infoContainer {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     width: 100%;
     padding: 10px;
+}
+
+.infoList {
+    width: 60%;
 }
 
 .infoDraggingItemList{

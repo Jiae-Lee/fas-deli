@@ -1,18 +1,18 @@
 import React from 'react'
 
-function DraggingList({configArray, setEditElemNum}) {
-    const setEditElemNumHandler=(idx)=>{
+function DraggingList({mergedHistoy, setEditElemNum}) {
+    const onClickHandler=(idx)=>{
         setEditElemNum(idx)
     }
     
   return (
     <ul>
-        {configArray.map((config, idx) => {
-            switch(config.component){
+        {mergedHistoy.map((config, idx) => {
+            switch(config.body.component){
                 case "ElementParagraph" :
-                    return <li key={idx}><p onClick={()=> setEditElemNumHandler(idx)}>{config.props.text ? config.props.text : 'Paragraph'}</p></li>;
+                    return <li key={idx}><p onClick={()=> onClickHandler(idx)}>{config.body.text ? config.body.text : 'Paragraph'}</p></li>;
                 case "ElementButton" :
-                    return <li key={idx}><button onClick={()=> setEditElemNumHandler(idx)}>{config.props.text ? config.props.text : 'Button'}</button></li>;
+                    return <li key={idx}><button onClick={()=> onClickHandler(idx)}>{config.body.text ? config.body.text : 'Button'}</button></li>;
                 default : return null;
             }
         })}
