@@ -34,3 +34,13 @@ yarn dev
 * mergeHistory (function) : redo, undo 기능 사용을 위해 step을 인자로 전달받아 history에서 step만큼 splice한 결과물을 합쳐 return
 * step : history.length - walkStep
 * walkStep : undo시 +1(최대 history.length), redo시 -1(최소 0)
+
+## 시연 동영상
+### Save & View
+![fasdeli](https://user-images.githubusercontent.com/66302651/173227218-c3959dc3-4e8e-42a0-8022-7705678f1910.gif)
+
+### Export & Import
+![import](https://user-images.githubusercontent.com/66302651/173227350-7f18ca09-1afe-4794-b610-62f2918a1c24.gif)
+
+### Undo & Redo
+![undo](https://user-images.githubusercontent.com/66302651/173227405-00882b23-344f-4e35-b21e-100c9e3d80e6.gif)
