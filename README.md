@@ -1,34 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Skills
+React, NextJs
 
-## Getting Started
-
-First, run the development server:
-
+## How to run
 ```bash
 npm run dev
 # or
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 구현 기능 설명 
+### Admin
+* 왼쪽에 위치한 element를 drag 하여 오른쪽 영역에 drop하면 drag된 태그가 생성됩니다. 
+* 해당 태그를 클릭하면 하단에서 innerText(button의 경우 alert message 포함)를 수정할 수 있습니다.
+* 수정한 내용은 화면상에 출력되는 config 또는 생성된 태그에 보여집니다.
+* 화면에 출력되는 내용
+    * Mouse : 구역 내의 x,y 좌표값 출력
+    * Dragging : drag되고 있는 element의 종류 출력
+    * Instance : drag 되어 생성된 태그의 수
+    * Config : drag 되어 생성된 태그에 담긴 정보
+* Nav
+    * Save : 현재 만들어진 태그 리스트를 저장합니다.
+    * Undo : 태그가 만들어질 때(add), 태그를 클릭하여 text 또는 message를 수정할 때(edit)를 history로 관리하여 이전 작업으로 돌아갑니다.
+    * Redo : Undo 버튼을 통해 취소한 작업을 재실행합니다.
+    * Export : 현재 상태를 localStorage에 저장합니다.
+    * Import : localStorage에 저장된 정보를 가져와 화면에 출력합니다.
+    * View : Save 된 정보를 출력합니다. (Save하지 않을 시 미출력)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Consumer
+* Admin에서 Save를 통해 저장한 정보가 보여집니다.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 기능 명세
+* history,setHistory (useState) : add, edit이 이뤄질 때 작업 기록한 배열
+* mergeHistory (function) : redo, undo 기능 사용을 위해 step을 인자로 전달받아 history에서 step만큼 splice한 결과물을 합쳐 return
+* step : history.length - walkStep
+* walkStep : undo시 +1(최대 history.length), redo시 -1(최소 0)
